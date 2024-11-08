@@ -1,10 +1,8 @@
-// app.js
 (async () => {
     const messagesDiv = document.getElementById('messages');
     const input = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
 
-    // Generate RSA key pairs for the server
     const serverRSAKeys = await window.crypto.subtle.generateKey(
         {
             name: "RSA-OAEP",
@@ -16,7 +14,6 @@
         ["encrypt", "decrypt"]
     );
 
-    // Diffie-Hellman parameters
     const dhParams = await window.crypto.subtle.generateKey(
         {
             name: "ECDH",
@@ -26,11 +23,10 @@
         ["deriveKey", "deriveBits"]
     );
 
-    // Exchange public keys (simulated here)
     const clientPublicKey = dhParams.publicKey;
-    const serverPublicKey = dhParams.publicKey; // In a real scenario, this would be different
+    const serverPublicKey = dhParams.publicKey; 
 
-    // Compute shared secret
+
     const sharedSecret = await window.crypto.subtle.deriveKey(
         {
             name: "ECDH",
@@ -45,7 +41,7 @@
         ["encrypt", "decrypt"]
     );
 
-    // Utility function to convert ArrayBuffer to Hex String
+
     function arrayBufferToHex(buffer) {
         const byteArray = new Uint8Array(buffer);
         const hexCodes = [...byteArray].map(value => {
@@ -54,14 +50,13 @@
         return hexCodes.join('');
     }
 
-    // Event listener for sending messages
     sendButton.addEventListener('click', async () => {
         const message = input.value.trim();
-        if (message === "") return; // Do not send empty messages
+        if (message === "") return; 
         input.value = '';
 
         try {
-            // Encrypt the message using RSA public key
+
             const encryptedMessage = await window.crypto.subtle.encrypt(
                 {
                     name: "RSA-OAEP",
@@ -70,16 +65,13 @@
                 new TextEncoder().encode(message)
             );
 
-            // Convert encrypted ArrayBuffer to Hex String for display
             const encryptedHex = arrayBufferToHex(encryptedMessage);
 
-            // Display the encrypted message
             const encryptedElement = document.createElement('div');
             encryptedElement.classList.add('message', 'encrypted');
             encryptedElement.textContent = `Encrypted: ${encryptedHex}`;
             messagesDiv.appendChild(encryptedElement);
 
-            // Decrypt the message using RSA private key
             const decryptedMessageBuffer = await window.crypto.subtle.decrypt(
                 {
                     name: "RSA-OAEP",
@@ -90,13 +82,11 @@
 
             const decryptedMessage = new TextDecoder().decode(decryptedMessageBuffer);
 
-            // Display the decrypted message
             const decryptedElement = document.createElement('div');
             decryptedElement.classList.add('message', 'decrypted');
             decryptedElement.textContent = `Decrypted: ${decryptedMessage}`;
             messagesDiv.appendChild(decryptedElement);
 
-            // Scroll to the bottom to show the latest messages
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         } catch (error) {
             console.error("Encryption/Decryption Error:", error);
