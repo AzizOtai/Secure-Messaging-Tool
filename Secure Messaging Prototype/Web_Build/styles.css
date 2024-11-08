@@ -1,0 +1,71 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#chat-container {
+    width: 60%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#messages {
+    border: 1px solid #ccc;
+    height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    text-align: left; /* Align text to the left for readability */
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.encrypted {
+    color: #d9534f; /* Red color for encrypted messages */
+    font-family: monospace;
+    word-break: break-all; /* Allow long words to break to prevent overflow */
+}
+
+.decrypted {
+    color: #5cb85c; /* Green color for decrypted messages */
+}
+
+#message-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #218838;
+}
