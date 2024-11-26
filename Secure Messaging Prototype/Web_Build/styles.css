@@ -30,7 +30,7 @@ h1 {
     padding: 10px;
     background-color: #fafafa;
     border-radius: 5px;
-    text-align: left; /* Align text to the left for readability */
+    text-align: left; 
 }
 
 .message {
@@ -38,13 +38,13 @@ h1 {
 }
 
 .encrypted {
-    color: #d9534f; /* Red color for encrypted messages */
+    color: #d9534f; 
     font-family: monospace;
-    word-break: break-all; /* Allow long words to break to prevent overflow */
+    word-break: break-all;
 }
 
 .decrypted {
-    color: #5cb85c; /* Green color for decrypted messages */
+    color: #5cb85c; 
 }
 
 #message-input {
