@@ -208,6 +208,8 @@ Key Components:
 This project is licensed under the MIT License.
 
 # Credits:
-- Web Build: Abdulaziz Al-Otaishan 
-- Java Build: - Abdullah Al-Bekari
-              - Ibrahim
+- Web Build:
+  - Abdulaziz Al-Otaishan 
+- Java Build:
+  - Abdullah Al-Bekairi
+  - Ibrahim Al-Halaki
