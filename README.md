@@ -1,7 +1,3 @@
-Below is the content for the README.md file. This README is designed to be informative and easy to follow, guiding users through the setup and usage of both the web-based and Java implementations of the Secure Messaging Application.
-
-markdown
-Copy code
 # Secure Messaging App Prototype with RSA & Diffie-Hellman
 
 Secure Messaging App Prototype with RSA & Diffie-Hellman. Includes Web (HTML/CSS/JS) and Java Implementations.
